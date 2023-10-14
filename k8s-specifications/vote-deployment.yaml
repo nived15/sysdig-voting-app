@@ -28,3 +28,4 @@ spec:
             cpu: 1m
           requests:
             cpu: 1m
+            memory: 90Mi
