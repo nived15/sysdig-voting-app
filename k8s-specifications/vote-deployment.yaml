@@ -20,12 +20,10 @@ spec:
         ports:
         - containerPort: 80
           name: vote
-        securityContext:
-          readOnlyRootFilesystem: true
         resources:
-#          limits:
-#            memory: 400Mi
-#            cpu: 20m
+          limits:
+            memory: 400Mi
+            cpu: 20m
           requests:
             cpu: 2m
             memory: 95Mi
