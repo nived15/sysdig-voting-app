@@ -23,7 +23,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: "${{ env.DOCKERFILE_CONTEXT }}"
-        tags: ${{ env.IMAGE_NAME }}
+        tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
         load: true
     
     - name: Setup cache
@@ -51,7 +51,7 @@ jobs:
       run: |
         ${GITHUB_WORKSPACE}/cache/sysdig-cli-scanner \
           --apiurl ${SYSDIG_SECURE_ENDPOINT} \
-          docker://${IMAGE_NAME} \
+          docker://${IMAGE_NAME}:${{ env.IMAGE_TAG }} \
           --console-log \
           --dbpath=${GITHUB_WORKSPACE}/cache/db/ \
           --cachepath=${GITHUB_WORKSPACE}/cache/scanner-cache/
